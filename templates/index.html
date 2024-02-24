@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Trail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="{% static 'style.css'%}">
+</head>
+<body>
+  {% include 'navbar.html' %}
+  {% if messages %}
+  {% for msg in messages%}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{msg}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor%}
+  {% endif %}
+   <div id="backgroundDiv1"> <h1 id="mainHeading" class="heading1">Tech Trail</h1> </div>
+    <div id="backgroundDiv2"><h4 id="clue" class="heading1">Riddle :"I start with a small 'n', but as you progress, I grow rapidly. Multiplying each step, I become larger than you can imagine. What am I?"
+      <br>Name your function "riddle"</h4></div>
+    <br><br>
+    <form method="POST" action="user_code">
+      {% csrf_token %}
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" >WRITE YOUR CODE HERE :</label>
+            <textarea name= "code" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-dark" type="submit">Submit Code</button>
+          </div>
+   
+
+    </form>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+  </body>
+  </html>

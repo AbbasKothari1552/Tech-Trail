@@ -1,0 +1,22 @@
+body{
+    background: #fbffd9;
+    color: rgb(0, 0, 0);
+}
+.heading1{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+#mainHeading{
+    font-size: 60px;
+}
+#clue{
+    font-size: 30px;
+}
+#backgroundDiv1{
+    display: block;
+color: #b9ae08;
+width: 300px;
+margin: auto;
+border-radius: 15px;
+}
