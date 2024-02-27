@@ -20,3 +20,15 @@ width: 300px;
 margin: auto;
 border-radius: 15px;
 }
+
+#mainContainer {
+    display: flex;
+  }
+
+  #leftPart {
+    flex: 1;
+  }
+
+  #rightPart {
+    flex: 1;
+  }
