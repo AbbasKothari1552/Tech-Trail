@@ -16,12 +16,19 @@ def compile_c_code(source_code):
             myfile.write(source_code)
         source_file = "main.c"
         output_file = "main"
-        subprocess.run(['gcc',source_file,'-o',output_file],check=True)
+        try:
+            result = subprocess.run(['gcc',source_file,'-o',output_file],stdout=subprocess.PIPE, stderr=subprocess.PIPE,check=True)
+            if result.returncode == 0:
+                pass
+            else:
+                raise subprocess.CalledProcessError(result.returncode, result.args, output=result.stdout, stderr=result.stderr)
+        except subprocess.CalledProcessError as e:
+            raise RuntimeError(f"{e.stderr}")
         result = subprocess.run(['./' + output_file],capture_output=True,text=True)
         output = result.stdout
         return output
     except subprocess.CalledProcessError as e:
-        raise RuntimeError(f"Compilation ERROR:{e.stderr}")
+        raise RuntimeError(f"Runtime ERROR:{e.stderr}")
 
 def user_code(request):
     if request.method == 'POST':

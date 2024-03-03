@@ -19,16 +19,16 @@ color: #b9ae08;
 width: 300px;
 margin: auto;
 border-radius: 15px;
-}
+} 
 
 #mainContainer {
     display: flex;
   }
 
-  #leftPart {
+#leftPart {
     flex: 1;
-  }
+}
 
-  #rightPart {
+#rightPart {
     flex: 1;
-  }
+}
